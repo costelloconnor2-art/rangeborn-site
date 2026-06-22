@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All — RANGEBORN</title>
+<meta name="description" content="Shop the full RANGEBORN range — mens and womens graphic tees, hoodies, jackets, flannel shirts, cowboy hats and caps across four signature collections.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/favicon-180.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <a href="index.html" class="logo">RANGE<span>BORN</span></a>
+  <nav class="main-nav">
+    <a href="shop.html" class="active">Shop</a>
+    <a href="shop.html?gender=mens">Mens</a>
+    <a href="shop.html?gender=womens">Womens</a>
+    <a href="index.html#collections">Collections</a>
+    <a href="lookbook.html">Lookbook</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="header-icons">
+    <button type="button" class="icon-btn" data-open="search" aria-label="Search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
+    <a href="login.html" class="icon-btn" aria-label="Account">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+    </a>
+    <button type="button" class="icon-btn" data-open="wishlist" aria-label="Wishlist">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7.4-4.6-10-9.2C.4 8.4 2 5 5.6 5 8 5 10 6.6 12 9c2-2.4 4-4 6.4-4 3.6 0 5.2 3.4 3.6 6.8C19.4 16.4 12 21 12 21z"/></svg>
+      <span class="count-badge" data-count="wishlist">0</span>
+    </button>
+    <button type="button" class="icon-btn" data-open="cart" aria-label="Bag">
+      <svg viewBox="0 0 24 24"><path d="M6 8h12l1 13H5L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+      <span class="count-badge" data-count="cart">0</span>
+    </button>
+    <button type="button" class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV ============ -->
+<nav class="mobile-nav">
+  <a href="shop.html">Shop</a>
+  <a href="shop.html?gender=mens">Mens</a>
+  <a href="shop.html?gender=womens">Womens</a>
+  <a href="index.html#collections">Collections</a>
+  <a href="lookbook.html">Lookbook</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay" id="search-overlay">
+  <button type="button" class="search-close" aria-label="Close search">
+    <svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <form onsubmit="return false">
+    <input type="text" id="search-input" placeholder="Search tees, hoodies, hats, collections…" autocomplete="off">
+  </form>
+  <div class="search-results" id="search-results"></div>
+</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="drawer-backdrop" id="cart-backdrop"></div>
+<aside class="drawer" id="cart-drawer">
+  <div class="drawer-head">
+    <h3>Your Bag</h3>
+    <button type="button" class="drawer-close" aria-label="Close bag">
+      <svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cart-body"></div>
+  <div class="drawer-foot" id="cart-foot" style="display:none;">
+    <div class="subtotal-row"><span>Subtotal</span><span id="cart-subtotal">£0</span></div>
+    <button type="button" class="btn btn-gold btn-block" data-checkout>Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ WISHLIST DRAWER ============ -->
+<div class="drawer-backdrop" id="wishlist-backdrop"></div>
+<aside class="drawer" id="wishlist-drawer">
+  <div class="drawer-head">
+    <h3>Wishlist</h3>
+    <button type="button" class="drawer-close" aria-label="Close wishlist">
+      <svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="wishlist-body"></div>
+</aside>
+
+<main>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Shop</p>
+      <h1 style="color:#fff;">Shop All</h1>
+    </div>
+  </section>
+
+  <!-- ============ SHOP LAYOUT ============ -->
+  <section class="section-pad bg-cream">
+    <div class="container">
+
+      <button type="button" class="filter-toggle btn btn-outline" style="color:var(--c-primary);border-color:rgba(22,22,22,.25);margin-bottom:24px;">Filter &amp; Sort</button>
+
+      <div class="shop-layout">
+
+        <!-- FILTER SIDEBAR -->
+        <aside class="filters">
+          <div class="filter-group">
+            <h4>Gender</h4>
+            <label class="filter-option"><input type="radio" name="filter-gender" value="all" checked> All</label>
+            <label class="filter-option"><input type="radio" name="filter-gender" value="mens"> Mens</label>
+            <label class="filter-option"><input type="radio" name="filter-gender" value="womens"> Womens</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Category</h4>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="mens-tees"> Mens Graphic Tees</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="mens-hoodies"> Mens Hoodies</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="mens-jackets"> Mens Jackets</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="mens-flannel"> Mens Flannel Shirts</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="mens-cowboy-hats"> Mens Cowboy Hats</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="mens-caps"> Mens Caps</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="womens-tees"> Womens Graphic Tees</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="womens-hoodies"> Womens Oversized Hoodies</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="womens-crop-tees"> Womens Crop Tees</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="womens-jackets"> Womens Jackets</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="womens-accessories"> Womens Accessories</label>
+            <label class="filter-option"><input type="checkbox" name="filter-category" value="womens-hats"> Womens Hats</label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Collection</h4>
+            <label class="filter-option"><input type="checkbox" name="filter-collection" value="western-heritage"> Western Heritage</label>
+            <label class="filter-option"><input type="checkbox" name="filter-collection" value="long-ride-club"> Long Ride Club</label>
+            <label class="filter-option"><input type="checkbox" name="filter-collection" value="outlaw-country"> Outlaw Country</label>
+            <label class="filter-option"><input type="checkbox" name="filter-collection" value="midnight-range"> Midnight Range</label>
+          </div>
+
+          <div class="filter-group" style="border-bottom:none;">
+            <h4>Price</h4>
+            <div class="price-range">
+              <input type="range" id="price-range" min="38" max="260" value="260">
+            </div>
+            <p id="price-range-value" style="font-size:.82rem;color:var(--c-secondary);margin-top:8px;">Up to £260</p>
+          </div>
+
+          <a href="shop.html" class="clear-filters">Clear All Filters</a>
+        </aside>
+
+        <!-- PRODUCT GRID -->
+        <div>
+          <div class="products-toolbar">
+            <span class="results-count" id="results-count">0 pieces</span>
+            <div class="toolbar-right">
+              <input type="text" id="shop-search" placeholder="Search this shop…" style="border:1px solid rgba(22,22,22,.15);border-radius:4px;padding:10px 14px;font-size:.85rem;background:#fff;min-width:180px;">
+              <div class="select-wrap">
+                <select id="sort-select">
+                  <option value="featured">Featured</option>
+                  <option value="newest">Newest</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-grid" id="shop-grid"></div>
+
+          <div class="empty-state" id="empty-state">
+            <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            <h3>No Pieces Found</h3>
+            <p style="margin-top:10px;color:var(--c-secondary);">Try adjusting your filters or search a different term.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">RANGE<span>BORN</span></a>
+        <p>Premium western apparel for men and women who ride further than the trend cycle. Built For The Long Ride.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16 4c.6 2.2 2 3.6 4 4v3c-1.6 0-3-.4-4-1.2V15a5 5 0 11-5-5"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 19l3-9m0 0c0-1.5 1-3 3-3s3 1.5 3 3.5-1.5 4.5-3.5 4.5c-1 0-1.7-.5-2-1"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html?gender=mens">Mens</a></li>
+          <li><a href="shop.html?gender=womens">Womens</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="lookbook.html">Lookbook</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">My Account</a></li>
+          <li><a href="contact.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="contact.html">Shipping &amp; Returns</a></li>
+          <li><a href="contact.html">Size Guide</a></li>
+          <li><a href="contact.html">Track Order</a></li>
+          <li><a href="contact.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 RANGEBORN. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="contact.html">Terms</a>
+        <a href="contact.html">Privacy</a>
+        <a href="contact.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/products-data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
